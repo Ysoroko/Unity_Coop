@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class PlayerParent : MonoBehaviour
 {
-    [SerializeField] float move_speed = 0.05f;
-    float last_h_movement_amount = 0f;
-    float last_v_movement_amount = 0f;
+    [SerializeField] float move_speed = 10f;
+    [SerializeField] float float_decay = 0.5f;
 
-    float current_movement_speed;
+    int last_h_input_direction = 0;
+    int last_v_input_direction = 0;
+    
+    float current_h_movement_speed = 0f;
+    float current_v_movement_speed = 0f;
     // [SerializeField] float jump_speed = 0.02f;
     // [SerializeField] int health = 100;
     // [SerializeField] float attack = 10f;
@@ -25,23 +28,47 @@ public class PlayerParent : MonoBehaviour
         throw new NotImplementedException();
     }
 
+    private float get_movement(string axis) {
+        float input_move_axis = Input.GetAxis(axis);
+        float input_movement = Math.Sign(input_move_axis) * move_speed;
+        float float_movement = 0f;
+        float total_movement = 0f;
+        if (input_move_axis != 0) {
+            if (axis == "Horizontal") {
+                current_h_movement_speed = move_speed;
+                last_h_input_direction = Math.Sign(input_move_axis);
+            }
+            else if (axis == "Vertical") {
+                current_v_movement_speed = move_speed;
+                last_v_input_direction = Math.Sign(input_move_axis);
+            }
+            total_movement = input_movement;
+        }
+        else {
+            if (axis == "Horizontal") {
+                current_h_movement_speed -= float_decay;
+                if (current_h_movement_speed <= float_decay)
+                    current_h_movement_speed = float_decay;
+                float_movement = last_h_input_direction * current_h_movement_speed;
+                Debug.Log("CURRENT H MOVEMENT SPEED");
+                Debug.Log(current_h_movement_speed);
+            }
+            else if (axis == "Vertical") {
+                current_v_movement_speed -= float_decay;
+                if (current_v_movement_speed <= float_decay)
+                    current_v_movement_speed = float_decay;
+                float_movement = last_v_input_direction * current_v_movement_speed;
+            }
+            total_movement = float_movement;
+        }  
+        return total_movement * Time.deltaTime;
+    }
+
     // Update is called once per frame
     public void Update()
     {
-        // Move horizontally
-        float horizontal_movement_amount = Input.GetAxis("Horizontal");
-
-        if (horizontal_movement_amount != 0)
-            last_h_movement_amount = Math.Sign(horizontal_movement_amount);
-        float h_movement = (horizontal_movement_amount + last_h_movement_amount) * move_speed;
-        
-        // Move vertically
-        float vertical_movement_amount = Input.GetAxis("Vertical");
-
-        if (vertical_movement_amount != 0)
-            last_v_movement_amount = Math.Sign(vertical_movement_amount);
-        float v_movement = (vertical_movement_amount + last_v_movement_amount) * move_speed;
-        transform.Translate(h_movement, v_movement, 0);
+        Debug.Log(get_movement("Horizontal"));
+        transform.Translate(get_movement("Horizontal"), get_movement("Vertical"), 0);
         
     }
 
