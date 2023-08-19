@@ -76,7 +76,7 @@ public class PlayerParent : MonoBehaviour
     {
         Debug.Log("Object is not visible");
         transform.position = new Vector3(0, 0, -1);
-        last_h_movement_amount = 0f;
-        last_v_movement_amount = 0f;
+        // last_h_movement_amount = 0f;
+        // last_v_movement_amount = 0f;
     }
 }
