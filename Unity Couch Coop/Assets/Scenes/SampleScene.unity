@@ -317,6 +317,14 @@ PrefabInstance:
       propertyPath: m_Time
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 7847819201605115154, guid: 74d9de62f076a5a4a9499a5dd22b90ed, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0.09808636
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847819201605115154, guid: 74d9de62f076a5a4a9499a5dd22b90ed, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7847819201605115164, guid: 74d9de62f076a5a4a9499a5dd22b90ed, type: 3}
       propertyPath: m_Name
       value: LongTrail
