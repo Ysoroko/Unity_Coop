@@ -50,8 +50,6 @@ public class PlayerParent : MonoBehaviour
                 if (current_h_movement_speed <= float_decay)
                     current_h_movement_speed = float_decay;
                 float_movement = last_h_input_direction * current_h_movement_speed;
-                Debug.Log("CURRENT H MOVEMENT SPEED");
-                Debug.Log(current_h_movement_speed);
             }
             else if (axis == "Vertical") {
                 current_v_movement_speed -= float_decay;
@@ -67,7 +65,6 @@ public class PlayerParent : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        Debug.Log(get_movement("Horizontal"));
         transform.Translate(get_movement("Horizontal"), get_movement("Vertical"), 0);
         
     }
