@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Square : PlayerParent
+public class PlayerYaro : PlayerParent
 {
     void Attack()
     {
