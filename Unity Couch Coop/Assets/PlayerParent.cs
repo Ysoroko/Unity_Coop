@@ -17,7 +17,6 @@ public class PlayerParent : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        
     }
 
     private void Attack()
@@ -44,5 +43,13 @@ public class PlayerParent : MonoBehaviour
         float v_movement = (vertical_movement_amount + last_v_movement_amount) * move_speed;
         transform.Translate(h_movement, v_movement, 0);
         
+    }
+
+    void OnBecameInvisible()
+    {
+        Debug.Log("Object is not visible");
+        transform.position = new Vector3(0, 0, -1);
+        last_h_movement_amount = 0f;
+        last_v_movement_amount = 0f;
     }
 }
