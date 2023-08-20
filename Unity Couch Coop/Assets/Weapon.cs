@@ -6,6 +6,9 @@ public class Weapon : MonoBehaviour
 {
     public Transform fire_point;
     public GameObject bulletPrefab;
+
+    private float force = 50f;
+
     // Update is called once per frame
     void Update()
     {

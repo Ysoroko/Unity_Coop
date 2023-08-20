@@ -18,4 +18,8 @@ public class Bullet : MonoBehaviour
        Debug.Log("OIOIOI");
     }
     
+    void OnBecameInvisible() 
+    {
+        Destroy(gameObject);
+    }
 }
