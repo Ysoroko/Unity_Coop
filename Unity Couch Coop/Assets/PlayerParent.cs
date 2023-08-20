@@ -70,8 +70,6 @@ public class PlayerParent : MonoBehaviour
     public void Shoot()
     {
         Vector2 bulletDir = gameObject.transform.right;
-        Debug.Log("bulletDir");
-        Debug.Log(bulletDir.normalized);
         gameObject.GetComponent<Rigidbody2D>().AddForce(bulletDir.normalized * -200f);
     }
 
