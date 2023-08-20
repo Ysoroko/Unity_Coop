@@ -15,7 +15,8 @@ public class Bullet : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-       Debug.Log("OIOIOI");
+        Vector2 bulletDir = gameObject.transform.right;
+        other.gameObject.GetComponent<Rigidbody2D>().AddForce(bulletDir.normalized * 200f);
     }
     
     void OnBecameInvisible() 
