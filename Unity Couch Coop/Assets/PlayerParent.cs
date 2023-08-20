@@ -20,6 +20,9 @@ public class PlayerParent : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        // All player need to be at the same poisition on the z axis
+        // For collision detection
+        transform.position = new Vector3(transform.position.x, transform.position.y, 1);
     }
 
     private void Attack()
