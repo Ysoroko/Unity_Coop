@@ -69,7 +69,7 @@ public class PlayerParent : MonoBehaviour
 
     public void Shoot()
     {
-        Vector2 bulletDir = gameObject.transform.right;
+        Vector2 bulletDir = gameObject.transform.up;
         gameObject.GetComponent<Rigidbody2D>().AddForce(bulletDir.normalized * -200f);
     }
 
@@ -78,7 +78,21 @@ public class PlayerParent : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
             Shoot();
+        
+        FaceCamera();
         transform.Translate(get_movement("Horizontal"), get_movement("Vertical"), 0);
+    }
+
+    public void FaceCamera()
+    {
+        Vector3 mouse_position = Input.mousePosition;
+        mouse_position = Camera.main.ScreenToWorldPoint(mouse_position);
+
+        Vector2 direction = new Vector2 (
+            mouse_position.x - transform.position.x,
+            mouse_position.y - transform.position.y);
+
+        transform.up = direction;
     }
 
     void OnBecameInvisible()
