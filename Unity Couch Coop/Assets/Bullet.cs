@@ -11,12 +11,11 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, 1);
-        rb.velocity = transform.right * speed ;
+        rb.velocity = transform.up * speed ;
     }
-
     void OnCollisionEnter2D(Collision2D other) {
-        Vector2 bulletDir = gameObject.transform.right;
-        other.gameObject.GetComponent<Rigidbody2D>().AddForce(bulletDir.normalized * 200f);
+        Vector2 bulletDir = gameObject.transform.up;
+        other.gameObject.GetComponent<Rigidbody2D>().AddForce(bulletDir.normalized * -200f);
     }
     
     void OnBecameInvisible() 
