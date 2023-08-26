@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, 1);
-        rb.velocity = transform.up * speed ;
+        rb.velocity = transform.up * speed;
     }
     void OnCollisionEnter2D(Collision2D other) {
         Vector2 bulletDir = gameObject.transform.up;
