@@ -149,3 +149,5 @@ MonoBehaviour:
   speed: 10
   reloadSpeed: 0
   rb: {fileID: -6530897267915272352}
+  TimeToLive: 0.5
+  explosion: {fileID: 2331367472952892585, guid: 1fa2911a776be534b8d329c1e4192f53, type: 3}
