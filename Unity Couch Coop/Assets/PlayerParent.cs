@@ -1,13 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class PlayerParent : MonoBehaviour
 {
     [SerializeField] float move_speed = 10f;
     [SerializeField] float float_decay = 0.5f;
+
+    // Dash
+    [SerializeField] float start_dash_time = 0.1f;
+    [SerializeField] float dash_speed = 50f;
+    private float dash_time;
+    bool dashing = false;
+
+    [SerializeField] float basic_knockback = -200f;
+
     AudioSource shot_sound;
+    Rigidbody2D rb;
+
     int last_h_input_direction = 0;
     int last_v_input_direction = 0;
     
@@ -24,8 +36,10 @@ public class PlayerParent : MonoBehaviour
     {
         // All player need to be at the same poisition on the z axis
         // For collision detection
-        transform.position = new Vector3(transform.position.x, transform.position.y, 1);
+        transform.position = new UnityEngine.Vector3(transform.position.x, transform.position.y, 1);
         shot_sound = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody2D>();
+        dash_time = start_dash_time;
     }
 
     private float get_movement(string axis) {
@@ -70,27 +84,53 @@ public class PlayerParent : MonoBehaviour
 
     public void Shoot()
     {
-        Vector2 bulletDir = gameObject.transform.up;
+        UnityEngine.Vector2 bulletDir = gameObject.transform.up;
         shot_sound.Play();
-        gameObject.GetComponent<Rigidbody2D>().AddForce(bulletDir.normalized * -200f);
+        gameObject.GetComponent<Rigidbody2D>().AddForce(bulletDir.normalized * basic_knockback);
+    }
+
+    public void Dash()
+    {
+        if (dash_time <= 0) {
+            rb.velocity = new UnityEngine.Vector2(0, 0);
+            Debug.Log(dash_time);
+            dash_time = start_dash_time;
+            dashing = false;
+        }
+        else {
+            dash_time -= Time.deltaTime;
+            rb.velocity = gameObject.transform.up * dash_speed;
+        }
+
+        
     }
 
     // Update is called once per frame
     public void Update()
     {
+        if (dashing)
+            Dash();
+        // Input
         if (Input.GetButtonDown("Fire1"))
             Shoot();
-        
+        if (Input.GetKey("space"))
+        {
+            dashing = true;
+            Dash();
+        }
+        // Always face the mouse direction
         FaceCamera();
+
+        // Move with the input
         transform.Translate(get_movement("Horizontal"), get_movement("Vertical"), 0);
     }
 
     public void FaceCamera()
     {
-        Vector3 mouse_position = Input.mousePosition;
+        UnityEngine.Vector3 mouse_position = Input.mousePosition;
         mouse_position = Camera.main.ScreenToWorldPoint(mouse_position);
 
-        Vector2 direction = new Vector2 (
+        UnityEngine.Vector2 direction = new UnityEngine.Vector2 (
             mouse_position.x - transform.position.x,
             mouse_position.y - transform.position.y);
 
@@ -99,7 +139,7 @@ public class PlayerParent : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        Debug.Log("Object is not visible");
-        transform.position = new Vector3(0, 0, -1);
+        transform.position = new UnityEngine.Vector3(0, 0, -1);
+        rb.velocity = new UnityEngine.Vector2(0, 0);
     }
 }
