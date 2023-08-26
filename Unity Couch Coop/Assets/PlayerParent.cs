@@ -7,7 +7,7 @@ public class PlayerParent : MonoBehaviour
 {
     [SerializeField] float move_speed = 10f;
     [SerializeField] float float_decay = 0.5f;
-
+    AudioSource shot_sound;
     int last_h_input_direction = 0;
     int last_v_input_direction = 0;
     
@@ -25,6 +25,7 @@ public class PlayerParent : MonoBehaviour
         // All player need to be at the same poisition on the z axis
         // For collision detection
         transform.position = new Vector3(transform.position.x, transform.position.y, 1);
+        shot_sound = GetComponent<AudioSource>();
     }
 
     private float get_movement(string axis) {
@@ -70,6 +71,7 @@ public class PlayerParent : MonoBehaviour
     public void Shoot()
     {
         Vector2 bulletDir = gameObject.transform.up;
+        shot_sound.Play();
         gameObject.GetComponent<Rigidbody2D>().AddForce(bulletDir.normalized * -200f);
     }
 
