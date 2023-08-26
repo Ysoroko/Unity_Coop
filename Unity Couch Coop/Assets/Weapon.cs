@@ -5,8 +5,12 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public Transform fire_point;
-    public GameObject bulletPrefab;
+    public GameObject weaponPrefab;
+    // public GameObject bulletPrefab;
+    //  public GameObject ShotgunBulletPrefab;
+    //  public GameObject GrenadeBulletPrefab;
 
+    //  public  weaponName;
 
     // Update is called once per frame
     void Update()
@@ -19,6 +23,6 @@ public class Weapon : MonoBehaviour
     
     void shoot()
     {
-        Instantiate(bulletPrefab, fire_point.position, fire_point.rotation);
+        Instantiate(weaponPrefab, fire_point.position, fire_point.rotation);
     }
 }
