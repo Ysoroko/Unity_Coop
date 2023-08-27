@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class PlayerParent : MonoBehaviour
@@ -14,6 +16,7 @@ public class PlayerParent : MonoBehaviour
     float current_h_movement_speed = 0f;
     float current_v_movement_speed = 0f;
 
+
     int facing_direction = 1;
     // [SerializeField] float jump_speed = 0.02f;
     // [SerializeField] int health = 100;
@@ -26,6 +29,7 @@ public class PlayerParent : MonoBehaviour
         // For collision detection
         transform.position = new Vector3(transform.position.x, transform.position.y, 1);
         shot_sound = GetComponent<AudioSource>();
+
     }
 
     private float get_movement(string axis) {
@@ -99,7 +103,6 @@ public class PlayerParent : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        Debug.Log("Object is not visible");
         transform.position = new Vector3(0, 0, -1);
     }
 }
