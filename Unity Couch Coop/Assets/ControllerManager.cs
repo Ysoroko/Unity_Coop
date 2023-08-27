@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +23,21 @@ public class ControllerManager : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        UnityEngine.Debug.Log("OI MATE I'M ATTACKING YA FER REAL!");
+    }
+
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        UnityEngine.Debug.Log("You can't see me!");
+    }
+
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        UnityEngine.Debug.Log("You won't get me!");
     }
 
     void Update()
