@@ -40,7 +40,7 @@ public class PlayerParent : MonoBehaviour
     {
         // All player need to be at the same poisition on the z axis
         // For collision detection
-        transform.position = new UnityEngine.Vector3(transform.position.x, transform.position.y, 1);
+        transform.position = new UnityEngine.Vector3(transform.position.x, transform.position.y, -5);
         shot_sound = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         dash_time = start_dash_time;
