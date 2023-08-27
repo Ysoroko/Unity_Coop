@@ -157,6 +157,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move_speed: 0.005
   float_decay: 0.5
+  start_dash_time: 0.1
+  dash_speed: 50
+  dashParticles: {fileID: 0}
+  basic_knockback: -200
 --- !u!212 &507141534
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -537,6 +541,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move_speed: 10
   float_decay: 0.5
+  start_dash_time: 0.1
+  dash_speed: 50
+  dashParticles: {fileID: 0}
+  basic_knockback: -200
 --- !u!212 &825160348
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -945,6 +953,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move_speed: 10
   float_decay: 4
+  start_dash_time: 0.1
+  dash_speed: 50
+  dashParticles: {fileID: 0}
+  basic_knockback: -200
 --- !u!61 &1925807527
 BoxCollider2D:
   m_ObjectHideFlags: 0

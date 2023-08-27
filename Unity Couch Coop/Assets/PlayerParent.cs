@@ -6,12 +6,16 @@ using UnityEngine;
 
 public class PlayerParent : MonoBehaviour
 {
+    // Moving
     [SerializeField] float move_speed = 10f;
     [SerializeField] float float_decay = 0.5f;
 
     // Dash
     [SerializeField] float start_dash_time = 0.1f;
     [SerializeField] float dash_speed = 50f;
+    [SerializeField] GameObject dashParticles;
+
+    private UnityEngine.Vector3 dash_direction;
     private float dash_time;
     bool dashing = false;
 
@@ -86,11 +90,14 @@ public class PlayerParent : MonoBehaviour
     {
         UnityEngine.Vector2 bulletDir = gameObject.transform.up;
         shot_sound.Play();
+        gameObject.GetComponent<PlayerSounds>().playShootPistolSound();
         gameObject.GetComponent<Rigidbody2D>().AddForce(bulletDir.normalized * basic_knockback);
     }
 
     public void Dash()
     {
+
+
         if (dash_time <= 0) {
             rb.velocity = new UnityEngine.Vector2(0, 0);
             Debug.Log(dash_time);
@@ -99,7 +106,7 @@ public class PlayerParent : MonoBehaviour
         }
         else {
             dash_time -= Time.deltaTime;
-            rb.velocity = gameObject.transform.up * dash_speed;
+            rb.velocity = dash_direction * dash_speed;
         }
 
         
@@ -110,13 +117,19 @@ public class PlayerParent : MonoBehaviour
     {
         if (dashing)
             Dash();
-        // Input
+        //  ---------  Input --------
+        // Shoot
         if (Input.GetButtonDown("Fire1"))
             Shoot();
-        if (Input.GetKey("space"))
+        // Dash
+        if (Input.GetKeyDown("space") && !dashing)
         {
+            dash_direction = gameObject.transform.up;
+            gameObject.GetComponent<ScreenShake>().start = true;
+            Instantiate(dashParticles, transform.position, UnityEngine.Quaternion.identity);
             dashing = true;
-            Dash();
+            gameObject.GetComponent<PlayerSounds>().playDashSound();
+            Debug.Log("OIOIO");
         }
         // Always face the mouse direction
         FaceCamera();
