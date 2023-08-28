@@ -6,7 +6,7 @@ public class PlayerSounds : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-    private AudioClip shootPistolSound, dashSound;
+    private AudioClip shootPistolSound, dashSound, pickupSound;
     private AudioSource audioSrc;
 
     void Start()
@@ -22,5 +22,10 @@ public class PlayerSounds : MonoBehaviour
     public void playDashSound()
     {
         audioSrc.PlayOneShot(dashSound);
+    }
+
+    public void playPickupSound()
+    {
+        audioSrc.PlayOneShot(pickupSound);
     }
 }
