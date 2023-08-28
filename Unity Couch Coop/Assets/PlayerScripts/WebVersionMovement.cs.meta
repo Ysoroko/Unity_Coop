@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: 837e966d68e53c5439f30a27faee0b07
+guid: f4875d607d6693a47a61aa23ba21df61
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - dashParticles: {fileID: 602886309391332907, guid: f90182a6359a55d4fab1a2837d86ce38, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
