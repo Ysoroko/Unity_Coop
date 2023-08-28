@@ -103,7 +103,7 @@ public class PlayerParent : MonoBehaviour
 
         if (dash_time <= 0) {
             rb.velocity = new UnityEngine.Vector2(0, 0);
-            Debug.Log(dash_time);
+            UnityEngine.Debug.Log(dash_time);
             dash_time = start_dash_time;
             dashing = false;
         }
@@ -132,7 +132,7 @@ public class PlayerParent : MonoBehaviour
             Instantiate(dashParticles, transform.position, UnityEngine.Quaternion.identity);
             dashing = true;
             gameObject.GetComponent<PlayerSounds>().playDashSound();
-            Debug.Log("OIOIO");
+            UnityEngine.Debug.Log("OIOIO");
         }
         // Always face the mouse direction
         FaceCamera();
