@@ -99,11 +99,8 @@ public class PlayerParent : MonoBehaviour
 
     public void Dash()
     {
-
-
         if (dash_time <= 0) {
             rb.velocity = new UnityEngine.Vector2(0, 0);
-            UnityEngine.Debug.Log(dash_time);
             dash_time = start_dash_time;
             dashing = false;
         }
@@ -111,8 +108,6 @@ public class PlayerParent : MonoBehaviour
             dash_time -= Time.deltaTime;
             rb.velocity = dash_direction * dash_speed;
         }
-
-        
     }
 
     // Update is called once per frame
@@ -132,7 +127,6 @@ public class PlayerParent : MonoBehaviour
             Instantiate(dashParticles, transform.position, UnityEngine.Quaternion.identity);
             dashing = true;
             gameObject.GetComponent<PlayerSounds>().playDashSound();
-            UnityEngine.Debug.Log("OIOIO");
         }
         // Always face the mouse direction
         FaceCamera();
@@ -151,11 +145,5 @@ public class PlayerParent : MonoBehaviour
             mouse_position.y - transform.position.y);
 
         transform.up = direction;
-    }
-
-    void OnBecameInvisible()
-    {
-        transform.position = new UnityEngine.Vector3(0, 0, -1);
-        rb.velocity = new UnityEngine.Vector2(0, 0);
     }
 }

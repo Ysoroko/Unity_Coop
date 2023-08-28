@@ -22,6 +22,7 @@ public class ControllerManager : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        UnityEngine.Debug.Log("MOVING REAL FAST");
         movementInput = context.ReadValue<Vector2>();
     }
 
@@ -42,8 +43,6 @@ public class ControllerManager : MonoBehaviour
 
     void Update()
     {
-      
-
         Vector3 move = new Vector3(movementInput.x, movementInput.y, 0);
         controller.Move(move * Time.deltaTime * playerSpeed);
 
