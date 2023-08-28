@@ -6,8 +6,13 @@ public class ScreenShake : MonoBehaviour
 {
     [SerializeField] public bool start = false;
     [SerializeField] AnimationCurve curve;
-    [SerializeField] float duration = 1f;
-    [SerializeField] Camera camera_to_shake;
+    [SerializeField] public float duration = 1f;
+    private Camera camera_to_shake;
+
+    void Start()
+    {
+        camera_to_shake = Camera.main;
+    }
 
     // Update is called once per frame
     void Update()
