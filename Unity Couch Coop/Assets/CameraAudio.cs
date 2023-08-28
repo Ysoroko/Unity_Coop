@@ -2,18 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSounds : MonoBehaviour
+public class CameraAudio : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField]
-    private AudioClip shootPistolSound, dashSound, pickupSound;
-    private AudioSource audioSrc;
+    private AudioClip bulletOnHitSound, shootPistolSound, dashSound, pickupSound;
 
+    private AudioSource audioSrc;
+    // Start is called before the first frame update
     void Start()
     {
         audioSrc = GetComponent<AudioSource>();
     }
 
+    // Update is called once per frame
+    public void playBulletDestroyedSound()
+    {
+        audioSrc.PlayOneShot(bulletOnHitSound);
+    }
     public void playShootPistolSound()
     {
         audioSrc.PlayOneShot(shootPistolSound);

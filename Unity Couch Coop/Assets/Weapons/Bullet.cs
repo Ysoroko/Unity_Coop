@@ -19,10 +19,10 @@ public class Bullet : MonoBehaviour
         Vector2 bulletDir = gameObject.transform.up;
         other.gameObject.GetComponent<Rigidbody2D>().AddForce(bulletDir.normalized * 200f);
         Instantiate(particles, transform.position, UnityEngine.Quaternion.identity);
-        gameObject.GetComponent<WeaponSounds>().bulletDestroyedSound();
+        Camera.main.GetComponent<CameraAudio>().playBulletDestroyedSound();
         Camera.main.GetComponent<ScreenShake>().duration = shake_duration;
         Camera.main.GetComponent<ScreenShake>().start = true;
-        // Destroy(gameObject);
+        Destroy(gameObject);
     }
     
     void OnBecameInvisible() 
