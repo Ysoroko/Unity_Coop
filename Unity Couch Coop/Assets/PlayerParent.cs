@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEngine.InputSystem;
 using System.Numerics;
 using UnityEngine;
 
@@ -29,6 +31,7 @@ public class PlayerParent : MonoBehaviour
     
     float current_h_movement_speed = 0f;
     float current_v_movement_speed = 0f;
+
 
     int facing_direction = 1;
     // [SerializeField] float jump_speed = 0.02f;
