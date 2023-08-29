@@ -5,12 +5,10 @@ using UnityEngine;
 public class WebVersionMovement : MonoBehaviour
 {
     // INPUT
-    [SerializeField] string fire_button;
-    [SerializeField] string dash_button;
-    string left_button;
-    string right_button;
-    string forward_button;
-    string backward_button;
+    [SerializeField] public string horizontal_axis;
+    [SerializeField] public string vertical_axis;
+    [SerializeField] public string fire_button;
+    [SerializeField] public string dash_button;
 
     // Move
     [SerializeField] float move_speed = 10f;
@@ -22,11 +20,17 @@ public class WebVersionMovement : MonoBehaviour
     // Dash
     [SerializeField] float start_dash_time = 0.1f;
     [SerializeField] float dash_speed = 50f;
+    [SerializeField] float dash_cooldown;
+    [SerializeField] float dash_delay;
     [SerializeField] GameObject dashParticles;
 
+    // Fire
+    Weapon weapon;
+
     private UnityEngine.Vector3 dash_direction;
+
     private float dash_time;
-    bool dashing = false;
+    public bool dashing = false;
 
     [SerializeField] float basic_knockback = -200f;
 
@@ -41,14 +45,16 @@ public class WebVersionMovement : MonoBehaviour
         camera_audio = Camera.main.GetComponent<CameraAudio>();
         rb = GetComponent<Rigidbody2D>();
         dash_time = start_dash_time;
+        weapon = gameObject.GetComponent<Weapon>();
+        // gameObject.GetComponent<Weapon>().weaponProjectilePrefab = bulletPrefab;
     }
 
     // Start is called before the first frame update
     public void Shoot()
     {
         UnityEngine.Vector2 bulletDir = gameObject.transform.up;
-        camera_audio.playShootPistolSound();
         gameObject.GetComponent<Rigidbody2D>().AddForce(bulletDir.normalized * basic_knockback);
+    
     }
 
     public void Dash()
@@ -67,25 +73,31 @@ public class WebVersionMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown(fire_button))
+        if (Input.GetButtonDown(fire_button) && weapon.weaponProjectilePrefab.GetComponent<Bullet>().readyToFire())
+        {
             Shoot();
-        if (Input.GetKeyDown(dash_button) && !dashing)
+            weapon.shoot();
+            weapon.weaponProjectilePrefab.GetComponent<Bullet>().resetCooldown();
+            float recoil = weapon.weaponProjectilePrefab.GetComponent<Bullet>().recoil;
+            UnityEngine.Vector2 bulletDir = gameObject.transform.up;
+            gameObject.GetComponent<Rigidbody2D>().AddForce(bulletDir.normalized * recoil * -1);
+        }
+        if (Input.GetButtonDown(dash_button) && !dashing && Time.time >= dash_cooldown)
         {
             dash_direction = gameObject.transform.up;
             gameObject.GetComponent<ScreenShake>().start = true;
             Instantiate(dashParticles, transform.position, UnityEngine.Quaternion.identity);
             dashing = true;
             camera_audio.playDashSound();
+            dash_cooldown = Time.time + dash_delay;
         }
         if (dashing)
             Dash();
 
-        float rotateAmount = Input.GetAxis("Horizontal") * rotate_speed;
+        float rotateAmount = Input.GetAxis(horizontal_axis) * rotate_speed;
         transform.Rotate(0, 0, -rotateAmount);
 
-        float moveAmount = Input.GetAxis("Vertical");
-        rb.AddForce(transform.up * moveAmount * move_speed);
-        // transform.Translate(0, moveAmount * move_speed, 0);
-        
+        float moveAmount = Input.GetAxis(vertical_axis);
+        rb.AddForce(transform.up * moveAmount * move_speed);        
     }
 }

@@ -27,17 +27,8 @@ public class PlayerParent : MonoBehaviour
     CameraAudio camera_audio;
     Rigidbody2D rb;
 
-    // int last_h_input_direction = 0;
-    // int last_v_input_direction = 0;
-    
-    // float current_h_movement_speed = 0f;
-    // float current_v_movement_speed = 0f;
-
 
     int facing_direction = 1;
-    // [SerializeField] float jump_speed = 0.02f;
-    // [SerializeField] int health = 100;
-    // [SerializeField] float attack = 10f;
 
     // Start is called before the first frame update
     public void Start()
