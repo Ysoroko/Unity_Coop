@@ -5,24 +5,17 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public Transform fire_point;
-    public GameObject weaponPrefab;
-    // public GameObject bulletPrefab;
-    //  public GameObject ShotgunBulletPrefab;
-    //  public GameObject GrenadeBulletPrefab;
-
-    //  public  weaponName;
-
-    // Update is called once per frame
-    void Update()
+    public GameObject weaponProjectilePrefab;
+    private string fireInput;
+    
+    void Start()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            shoot();
-        }
+        fireInput = gameObject.GetComponent<WebVersionMovement>().fire_button;
+        
     }
     
-    void shoot()
+    public void shoot()
     {
-        Instantiate(weaponPrefab, fire_point.position, fire_point.rotation);
+        GameObject bullet = Instantiate(weaponProjectilePrefab, fire_point.position, fire_point.rotation);
     }
 }
