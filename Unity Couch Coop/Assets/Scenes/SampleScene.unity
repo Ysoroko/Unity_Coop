@@ -270,10 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3795612e688b5c54cb216f2a02c6780f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 4972988136376787198, guid: d89d804f24c970c4b98942422908ec82, type: 3}
-  - {fileID: 4972988136376787198, guid: d89d804f24c970c4b98942422908ec82, type: 3}
-  - {fileID: 4972988136376787198, guid: d89d804f24c970c4b98942422908ec82, type: 3}
+  to_spawn: {fileID: 3646762524486806009, guid: 699f14bb14a8ee8418c253c3b285ce45, type: 3}
 --- !u!114 &519420035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5347,8 +5344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4875d607d6693a47a61aa23ba21df61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontal_axis: 
-  vertical_axis: 
   fire_button: Fire1
   dash_button: space
   move_speed: 0.7
@@ -5356,10 +5351,7 @@ MonoBehaviour:
   rotate_speed: 0.6
   start_dash_time: 0.1
   dash_speed: 50
-  dash_cooldown: 0
-  dash_delay: 0
   dashParticles: {fileID: 602886309391332907, guid: f90182a6359a55d4fab1a2837d86ce38, type: 3}
-  dashing: 0
   basic_knockback: -100
 --- !u!1 &1126180210
 GameObject:

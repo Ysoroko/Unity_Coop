@@ -5,12 +5,7 @@ using UnityEngine;
 public class CameraAudio : MonoBehaviour
 {
     [SerializeField]
-<<<<<<< HEAD:Unity Couch Coop/Assets/CameraAudio.cs
     private AudioClip bulletOnHitSound, shootPistolSound, dashSound, pickupSound;
-=======
-    private AudioClip shootPistolSound, dashSound, pickupSound;
-    private AudioSource audioSrc;
->>>>>>> 95ecd308a167fe278b9b9ef17cded2f6b7338242:Unity Couch Coop/Assets/PlayerScripts/PlayerSounds.cs
 
     private AudioSource audioSrc;
     // Start is called before the first frame update
