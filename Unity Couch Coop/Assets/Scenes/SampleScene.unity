@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerTwo
       objectReference: {fileID: 0}
+    - target: {fileID: 8548975606025586656, guid: fa9baa37ff2fe6e4a9c85b010b6fe05d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8548975606025586672, guid: fa9baa37ff2fe6e4a9c85b010b6fe05d, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -5411,6 +5415,10 @@ PrefabInstance:
     - target: {fileID: 8548975606025586642, guid: fa9baa37ff2fe6e4a9c85b010b6fe05d, type: 3}
       propertyPath: m_Name
       value: PlayerOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548975606025586656, guid: fa9baa37ff2fe6e4a9c85b010b6fe05d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8548975606025586673, guid: fa9baa37ff2fe6e4a9c85b010b6fe05d, type: 3}
       propertyPath: m_RootOrder

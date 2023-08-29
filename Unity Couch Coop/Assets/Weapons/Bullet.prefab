@@ -100,13 +100,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d376c179ad932e04f964c76b771ad49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moving: 1
   speed: 20
   rb: {fileID: -5314555766519954124}
   shake_duration: 0.5
+  to_destroy_after_time: 0
+  lifetime: 0.5
   particles: {fileID: 615843365883302739, guid: 8fb751ded270d5b4f98f9595896852f1, type: 3}
-  fire_cooldown: 3
+  fire_cooldown: 0.5
   fire_delay: 0.2
   knockback_power: 200
+  recoil: 500
 --- !u!50 &-5314555766519954124
 Rigidbody2D:
   serializedVersion: 4

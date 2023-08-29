@@ -16,7 +16,7 @@ public class Pickup : MonoBehaviour
 
       public void OnTriggerEnter2D(Collider2D other)
     {
-         other.gameObject.GetComponent<Weapon>().weaponPrefab = weapon;
+         other.gameObject.GetComponent<Weapon>().weaponProjectilePrefab = weapon;
         if(other.tag == "Player")
             Destroy(gameObject);
     }

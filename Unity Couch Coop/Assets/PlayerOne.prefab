@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 8548975606025586685}
   - component: {fileID: 8548975606025586684}
   - component: {fileID: 8548975606025586683}
-  - component: {fileID: 8548975606025586656}
+  - component: {fileID: 6774749728880438628}
   - component: {fileID: 8548975606025586682}
   m_Layer: 0
   m_Name: PlayerOne
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fire_point: {fileID: 844225683296481883}
-  weaponProjectilePrefab: {fileID: 397711049687458908, guid: 86a2cd202e3b06a4a89e1d0e086198fe, type: 3}
+  weaponProjectilePrefab: {fileID: 1694444441847006734, guid: 91159552c1ff8f94c89b570bdf5c1cc7, type: 3}
 --- !u!114 &8548975606025586686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +249,7 @@ MonoBehaviour:
   dash_speed: 50
   dashParticles: {fileID: 602886309391332907, guid: f90182a6359a55d4fab1a2837d86ce38, type: 3}
   basic_knockback: -200
---- !u!114 &8548975606025586656
+--- !u!114 &6774749728880438628
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
