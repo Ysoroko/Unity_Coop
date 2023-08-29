@@ -104,6 +104,9 @@ MonoBehaviour:
   rb: {fileID: -5314555766519954124}
   shake_duration: 0.5
   particles: {fileID: 615843365883302739, guid: 8fb751ded270d5b4f98f9595896852f1, type: 3}
+  fire_cooldown: 3
+  fire_delay: 0.2
+  knockback_power: 200
 --- !u!50 &-5314555766519954124
 Rigidbody2D:
   serializedVersion: 4
