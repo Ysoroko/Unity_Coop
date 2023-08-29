@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,9 +7,9 @@ using UnityEngine;
 public class PickupSpawner : MonoBehaviour
 {
     // Start is called before the first frame update
+          
+    public GameObject[] weapons;
 
-     public int numberOfPowerUps = 1;             
-    public GameObject powerUpPrefab;
     void Start()
     {           
         InvokeRepeating("Spawn", 1, 5);
@@ -22,8 +23,13 @@ public class PickupSpawner : MonoBehaviour
 
     void Spawn()
     {
-         Vector2 spawnPosition = new Vector2(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f));   
-        Instantiate(powerUpPrefab, spawnPosition, Quaternion.identity);   
+        float spawnY = UnityEngine.Random.Range
+                (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y, Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height)).y);
+        float spawnX = UnityEngine.Random.Range
+                (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x);
+        Vector2 spawnPosition = new Vector2(spawnX, spawnY);
+        //Vector2 spawnPosition = new Vector2(UnityEngine.Random.Range(-10.0f, 10.0f), UnityEngine.Random.Range(-10.0f, 10.0f));   
+        Instantiate(weapons[UnityEngine.Random.Range(0, weapons.Length)], spawnPosition, Quaternion.identity);   
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
