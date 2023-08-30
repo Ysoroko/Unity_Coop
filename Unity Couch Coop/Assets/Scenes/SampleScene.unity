@@ -281,7 +281,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.542094
+  orthographic size: 12.694469
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -387,7 +387,7 @@ MonoBehaviour:
   bulletOnHitSound: {fileID: 8300000, guid: c1569f106d64d7a478feb4671c41889e, type: 3}
   shootPistolSound: {fileID: 8300000, guid: 20ba067d6606b8f45a5975244ab36f84, type: 3}
   dashSound: {fileID: 8300000, guid: 8c9223b9728038c4fa58eac9a9c0df2b, type: 3}
-  pickupSound: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: 9307bea4c41238c418097b40d2ccf466, type: 3}
 --- !u!82 &519420036
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5783,7 +5783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1849.4001, y: -111.899994}
+  m_AnchoredPosition: {x: 1774, y: -111.899994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1497072578
@@ -5859,7 +5859,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1950, y: -112}
+  m_AnchoredPosition: {x: 1874.5999, y: -112}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1509183040
@@ -5935,7 +5935,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1748.9001, y: -112}
+  m_AnchoredPosition: {x: 1673.5, y: -112}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1806378692

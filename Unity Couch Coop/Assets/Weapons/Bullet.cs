@@ -29,7 +29,6 @@ public class Bullet : MonoBehaviour
         camera_audio.playShootPistolSound();
         transform.position = new Vector3(transform.position.x, transform.position.y, 1);
         rb.velocity = transform.up * speed;
-        fire_cooldown = 3f;
         if (to_destroy_after_time)
             Destroy(gameObject, lifetime);
     }
