@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     public ParticleSystem particles;
     CameraAudio camera_audio;
 
-    [SerializeField] public float fire_cooldown = 3f;
+    public float fire_cooldown;
     [SerializeField] public float fire_delay = 0.1f;
 
     [SerializeField] public float knockback_power = 200f;
@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fire_cooldown = 3f;
         camera_audio = Camera.main.GetComponent<CameraAudio>();
         camera_audio.playShootPistolSound();
         transform.position = new Vector3(transform.position.x, transform.position.y, 1);
