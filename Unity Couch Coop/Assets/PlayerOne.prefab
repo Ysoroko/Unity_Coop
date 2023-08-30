@@ -262,6 +262,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8548975606025586685}
+  current_player_number: 0
+  lives: []
 --- !u!114 &8548975606025586682
 MonoBehaviour:
   m_ObjectHideFlags: 0
