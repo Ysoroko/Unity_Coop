@@ -10,7 +10,7 @@ public class Pickup : MonoBehaviour
     void Start()
     {
         weapon = weapons[Random.Range(0, weapons.Length)];
-        Destroy(gameObject, 500f);
+        Destroy(gameObject, 2f);
     }
     
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraAudio : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip bulletOnHitSound, shootPistolSound, dashSound, pickupSound;
+    private AudioClip bulletOnHitSound, shootPistolSound, dashSound, pickupSound, shotgunSound, grandeLauncherSound, explotionSound;
 
     private AudioSource audioSrc;
     // Start is called before the first frame update
