@@ -33,4 +33,5 @@ public class CameraAudio : MonoBehaviour
     {
         audioSrc.PlayOneShot(pickupSound);
     }
+
 }

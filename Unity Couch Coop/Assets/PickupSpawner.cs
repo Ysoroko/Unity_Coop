@@ -24,9 +24,9 @@ public class PickupSpawner : MonoBehaviour
     void Spawn()
     {
         float spawnY = UnityEngine.Random.Range
-                (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y, Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height)).y);
+                (Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height/5)).y, Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height - Screen.height/5)).y);
         float spawnX = UnityEngine.Random.Range
-                (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x);
+                (Camera.main.ScreenToWorldPoint(new Vector2(Screen.width/5, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width - Screen.width/5, 0)).x);
         Vector2 spawnPosition = new Vector2(spawnX, spawnY);
         //Vector2 spawnPosition = new Vector2(UnityEngine.Random.Range(-10.0f, 10.0f), UnityEngine.Random.Range(-10.0f, 10.0f));   
         Instantiate(to_spawn, spawnPosition, Quaternion.identity);   
