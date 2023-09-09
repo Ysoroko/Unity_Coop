@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraAudio : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip bulletOnHitSound, shootPistolSound, dashSound, pickupSound;
+    private AudioClip bulletOnHitSound, shootPistolSound, dashSound, pickupSound, pickupTimeoutSound;
 
     private AudioSource audioSrc;
     // Start is called before the first frame update
@@ -32,6 +32,11 @@ public class CameraAudio : MonoBehaviour
     public void playPickupSound()
     {
         audioSrc.PlayOneShot(pickupSound);
+    }
+
+    public void playPickupTimeoutSound()
+    {
+        audioSrc.PlayOneShot(pickupTimeoutSound);
     }
 
 }

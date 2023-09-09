@@ -9,17 +9,19 @@ public class PickupSpawner : MonoBehaviour
     // Start is called before the first frame update
           
     public GameObject to_spawn;
+    [SerializeField] float first_spawn_after_seconds = 1f;
+    [SerializeField] float pickup_spawn_frequency = 5f;
 
     void Start()
     {           
-        InvokeRepeating("Spawn", 1, 5);
+        InvokeRepeating("Spawn", first_spawn_after_seconds, pickup_spawn_frequency);
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    // void Update()
+    // {
         
-    }
+    // }
 
     void Spawn()
     {
