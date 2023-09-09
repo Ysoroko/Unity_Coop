@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] public float recoil = 500f;
     
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         fire_cooldown = 3f;
         camera_audio = Camera.main.GetComponent<CameraAudio>();
@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour
         if (to_destroy_after_time)
             Destroy(gameObject, lifetime);
     }
-    void OnCollisionEnter2D(Collision2D other) {
+    public void OnCollisionEnter2D(Collision2D other) {
         Vector2 bulletDir = gameObject.transform.up;
         if (!other.gameObject.GetComponent<WebVersionMovement>().dashing)
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(bulletDir.normalized * knockback_power);
@@ -53,11 +53,11 @@ public class Bullet : MonoBehaviour
         fire_cooldown = Time.time + fire_delay;
     }
 
-    void OnDestroy()
+    public void OnDestroy()
     {
         fire_cooldown = 3f;
     }
-    void OnBecameInvisible() 
+    public void OnBecameInvisible() 
     {
         Destroy(gameObject);
     }

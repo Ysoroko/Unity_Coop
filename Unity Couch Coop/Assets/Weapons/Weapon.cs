@@ -10,8 +10,8 @@ public class Weapon : MonoBehaviour
     
     void Start()
     {
+        weaponProjectilePrefab.GetComponent<Bullet>().fire_cooldown = 3f;
         fireInput = gameObject.GetComponent<WebVersionMovement>().fire_button;
-        
     }
     
     public void shoot()
